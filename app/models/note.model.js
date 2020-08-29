@@ -11,4 +11,4 @@ const Patient = new Schema(
     { timestamps: true },
 )
 
-module.exports = mongoose.model('patients', Patient)
+module.exports = mongoose.model('Patient', Patient)
