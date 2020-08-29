@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 
-const NoteSchema = mongoose.Schema({
-    title: String,
-    content: String
-}, {
-    timestamps: true
-});
+const Patient = new Schema(
+    {
+        name: { type: String, required: true },
+		hkid: { type: String, required: true },
+		dob: { type: String, required: true },
+        country: { type: [String], required: false },
+    },
+    { timestamps: true },
+)
 
-module.exports = mongoose.model('Note', NoteSchema);
+module.exports = mongoose.model('patients', Patient)
