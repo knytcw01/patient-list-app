@@ -5,6 +5,8 @@ const cors = require('cors')
 // create express app
 const app = express();
 
+const patientRouter = require('./routes/patient-router')
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -33,6 +35,8 @@ mongoose.connect(dbConfig.url, {
 app.get('/', (req, res) => {
     res.json({"message": "Hello World."});
 });
+
+app.use('/api', patientRouter)
 
 require('./app/routes/note.routes.js')(app);
 
