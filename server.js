@@ -5,7 +5,8 @@ const cors = require('cors')
 // create express app
 const app = express();
 
-const patientRouter = require('./routes/patient-router')
+//const patientRouter = require('./routes/patient-router')
+const patientRouter = require('./app/routes/note.routes.js');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -37,8 +38,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', patientRouter)
-
-require('./app/routes/note.routes.js')(app);
 
 // listen for requests
 app.listen(8080, () => {
